@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "barrio_objetivo": "Chapinero Alto",
+    "canal_adquisicion": "Alianzas Geolocalizadas (Cafés y Pet Shops locales)",
+    "tactica_conversion": "Alianza con cafés pet-friendly de la zona (ej. Varietale, Amor Perfecto) o veterinarias locales. Colocar códigos QR con el beneficio 'Tu primer paseo va por nuestra cuenta' o '15% de descuento en tu primer Cat Sitting'",
+    "metrica_exito": "CAC (Costo de Adquisición de Cliente) inferior a $15.000 COP"
+  },
+  {
+    "id": 2,
+    "barrio_objetivo": "Cedritos / Usaquén",
+    "canal_adquisicion": "Anuncios Meta Segmentados por Comunidad de Edificios",
+    "tactica_conversion": "Campañas de video mostrando la paz mental de los reportes diarios de Duni. El gancho de conversión: 'Garantía Poliza de Respaldo Seguro' + '10% de descuento en tu primer Hospedaje' para romper la barrera de desconfianza en conjuntos cerrados.",
+    "metrica_exito": "Tasa de conversión de descarga a primera reserva > 8%"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "competidor_id": 1,
+    "nombre_servicio": "Hospedaje Nocturno (Perro Mediano)",
+    "precio_cop": 45000,
+    "barrio_zona": "Chapinero Alto"
+  },
+  {
+    "id": 2,
+    "competidor_id": 1,
+    "nombre_servicio": "Paseo de 1 Hora",
+    "precio_cop": 12000,
+    "barrio_zona": "Chapinero Alto"
+  },
+  {
+    "id": 3,
+    "competidor_id": 1,
+    "nombre_servicio": "Visita Domicilio (Gatos)",
+    "precio_cop": 25000,
+    "barrio_zona": "Cedritos"
+  },
+  {
+    "id": 4,
+    "competidor_id": 2,
+    "nombre_servicio": "Hospedaje Nocturno (Perro Mediano)",
+    "precio_cop": 50000,
+    "barrio_zona": "Chapinero Alto"
+  },
+  {
+    "id": 5,
+    "competidor_id": 2,
+    "nombre_servicio": "Paseo de 1 Hora",
+    "precio_cop": 15000,
+    "barrio_zona": "Cedritos"
+  },
+  {
+    "id": 6,
+    "competidor_id": 2,
+    "nombre_servicio": "Visita Domicilio (Gatos)",
+    "precio_cop": 28000,
+    "barrio_zona": "Chapinero Alto"
+  }
+]

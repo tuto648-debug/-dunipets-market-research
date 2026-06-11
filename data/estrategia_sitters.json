@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "perfil_sitter": "Estudiante Universitario (Veterinaria/Biología)",
+    "zonas_clave": "Chapinero, Teusaquillo",
+    "motivacion_principal": "Ingresos extra flexibles y pasión por los animales.",
+    "barrera_bogotana": "Viven en apartaestudios o habitaciones compartidas. Espacio muy limitado.",
+    "estrategia_duni": "Reclutarlos exclusivamente para servicios de 'Paseos' y 'Visitas a domicilio (Cat Sitting)'. No requieren espacio propio y tienen alta disponibilidad entre clases.",
+    "canal_reclutamiento": "Grupos de facultades en Facebook/WhatsApp, anuncios cerca de la Universidad de La Salle o la Nacional."
+  },
+  {
+    "id": 2,
+    "perfil_sitter": "Trabajador Remoto / Home Office (Pet Lover)",
+    "zonas_clave": "Cedritos, Usaquén, Chico",
+    "motivacion_principal": "Compañía durante el día y monetizar el tiempo que ya pasan en casa.",
+    "barrera_bogotana": "Viven en apartamentos en propiedad horizontal con reglas estrictas de administración sobre ruidos o flujos de animales.",
+    "estrategia_duni": "Reclutarlos para 'Hospedaje de un solo perro mediano/pequeño' o 'Guardería diurna'. Capacitarlos en la normativa de convivencia de Bogotá.",
+    "canal_reclutamiento": "Comunidades de Slack de tech/remoto, publicidad segmentada en Instagram (intereses: teletrabajo + perros)."
+  }
+]

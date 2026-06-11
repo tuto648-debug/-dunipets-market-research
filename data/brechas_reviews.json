@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "competidor_id": 1,
+    "resumen_dolor": "Falta de reportes y fotos en tiempo real",
+    "review_original": "Dejé a mi perro el fin de semana y pasaron 24 horas sin que el cuidador me enviara una sola foto. Escribí a soporte y tardaron horas en responderme. Pagué por tranquilidad y pasé un fin de semana lleno de ansiedad.",
+    "gravedad_fallo": "Alta",
+    "oportunidad_duni": "Duni debe hacer obligatorio y automatizado el reporte diario con fotos/videos antes de las 12 PM mediante la app, apalancando su propuesta de 'Paz mental' como estándar no negociable."
+  },
+  {
+    "id": 2,
+    "competidor_id": 1,
+    "resumen_dolor": "Cancelaciones de paseadores a última hora",
+    "review_original": "Agendé paseos para toda la semana por temas de trabajo. El paseador canceló el lunes media hora antes del servicio porque le surgió un inconveniente. La app no me dio un reemplazo rápido y me tocó devolverme de la oficina.",
+    "gravedad_fallo": "Alta",
+    "oportunidad_duni": "Implementar un sistema de 'Cuidadores de Respaldo' o 'Backups' zonales en Chapinero y Cedritos para cubrir emergencias en menos de 30 minutos."
+  },
+  {
+    "id": 3,
+    "competidor_id": 2,
+    "resumen_dolor": "Inflexibilidad o abandono del nicho de gatos",
+    "review_original": "Buscaba un cuidado exclusivo a domicilio para mis dos gatos porque se estresan mucho si los saco de su entorno. Casi todos los cuidadores disponibles solo aceptan perros en sus casas o no saben cómo tratar felinos.",
+    "gravedad_fallo": "Media",
+    "oportunidad_duni": "Posicionar con fuerza la oferta especializada de visitas a domicilio para gatos (Cat Sitting), un nicho muy fuerte en los apartamentos de Chapinero Alto que la competencia descuida."
+  }
+]
