@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasarelas de Pago — DuniPets Colombia | Junio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/html.min.js"></script>
+
+  <style>
+    /* ─── Variables ─── */
+    :root {
+      --green-900: #1a3d2b;
+      --green-800: #1e4d35;
+      --green-700: #22623f;
+      --green-600: #2d7a52;
+      --green-500: #3a9966;
+      --green-400: #52b880;
+      --green-300: #7dcba0;
+      --green-100: #e8f5ef;
+      --green-50:  #f3fbf6;
+      --amber-500: #f59e0b;
+      --amber-100: #fef3c7;
+      --red-500:   #ef4444;
+      --red-100:   #fee2e2;
+      --blue-600:  #2563eb;
+      --gray-900:  #111827;
+      --gray-800:  #1f2937;
+      --gray-700:  #374151;
+      --gray-600:  #4b5563;
+      --gray-400:  #9ca3af;
+      --gray-200:  #e5e7eb;
+      --gray-100:  #f3f4f6;
+      --gray-50:   #f9fafb;
+      --white:     #ffffff;
+      --nav-h:     60px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.12);
+      --radius:    10px;
+    }
+
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.65;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green-900);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+    .nav-brand .paw { font-size: 1.4rem; }
+    .nav-brand span {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .nav-brand small {
+      font-size: 0.65rem;
+      color: var(--green-300);
+      font-weight: 400;
+      display: block;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      color: var(--green-300);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--green-800); color: var(--white); }
+    .nav-badge {
+      background: var(--green-500);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 99px;
+      flex-shrink: 0;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 60%, var(--green-500) 100%);
+      color: var(--white);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      margin: 0 auto 1.75rem;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+    .hero-meta-item strong { color: var(--white); display: block; font-size: 0.95rem; }
+
+    /* ─── Layout ─── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 3.5rem 0; }
+    section:not(:last-of-type) { border-bottom: 1px solid var(--gray-200); }
+
+    /* ─── Section Headers ─── */
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-num {
+      width: 40px;
+      height: 40px;
+      background: var(--green-600);
+      color: var(--white);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .section-header h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--green-900);
+      letter-spacing: -0.02em;
+    }
+    .section-header p {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin: 2rem 0 0.85rem;
+    }
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    /* ─── Tables ─── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); margin: 1.25rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 0.85rem;
+    }
+    thead tr { background: var(--green-900); color: var(--white); }
+    thead th {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--gray-100); transition: background 0.1s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--green-50); }
+    tbody td { padding: 0.75rem 1rem; color: var(--gray-700); vertical-align: top; }
+    tbody td:first-child { font-weight: 600; color: var(--gray-900); }
+
+    /* winner row */
+    tr.winner { background: var(--green-50); }
+    tr.winner td:first-child { color: var(--green-700); }
+    tr.eliminated { opacity: 0.55; }
+
+    /* score cells */
+    .score-high { color: var(--green-600); font-weight: 700; }
+    .score-mid  { color: var(--amber-500); font-weight: 600; }
+    .score-low  { color: var(--red-500); }
+
+    /* ─── Score bar ─── */
+    .score-bar-wrap { display: flex; align-items: center; gap: 0.6rem; }
+    .score-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--gray-200);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .score-bar-fill { height: 100%; border-radius: 99px; }
+    .score-bar-fill.high { background: var(--green-500); }
+    .score-bar-fill.mid  { background: var(--amber-500); }
+    .score-bar-fill.low  { background: var(--red-500); }
+    .score-num { font-weight: 700; font-size: 0.8rem; width: 32px; text-align: right; }
+
+    /* ─── Callout boxes ─── */
+    .callout {
+      display: flex;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      margin: 1.25rem 0;
+      font-size: 0.88rem;
+    }
+    .callout-icon { font-size: 1.15rem; flex-shrink: 0; line-height: 1.5; }
+    .callout-body { flex: 1; }
+    .callout-body strong { display: block; font-weight: 600; margin-bottom: 0.2rem; }
+    .callout.info    { background: var(--green-50);  border-left: 3px solid var(--green-500); }
+    .callout.warning { background: var(--amber-100); border-left: 3px solid var(--amber-500); }
+    .callout.danger  { background: var(--red-100);   border-left: 3px solid var(--red-500); }
+    .callout.dark    { background: var(--gray-800); color: var(--white); border-left: 3px solid var(--green-400); }
+    .callout.dark strong { color: var(--green-300); }
+
+    /* ─── Code blocks ─── */
+    pre {
+      border-radius: var(--radius);
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      margin: 1.25rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    pre code { font-family: 'JetBrains Mono', 'Fira Code', monospace !important; }
+    .ascii-block {
+      background: var(--gray-900);
+      color: #a8ff78;
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      overflow-x: auto;
+      white-space: pre;
+      margin: 1.25rem 0;
+      box-shadow: var(--shadow-md);
+    }
+    .code-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: -0.5rem;
+      margin-top: 1.5rem;
+    }
+    .code-label .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .dot-py  { background: #3776ab; }
+    .dot-js  { background: #f7df1e; }
+    .dot-html { background: #e34c26; }
+
+    /* ─── Phase cards ─── */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .phase-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--green-500);
+    }
+    .phase-card.alt { border-top-color: var(--green-300); }
+    .phase-card.adv { border-top-color: var(--green-700); }
+    .phase-card h3 { margin-top: 0; color: var(--green-800); font-size: 1rem; }
+    .phase-card .phase-sub { font-size: 0.78rem; color: var(--gray-500); margin-top: -0.5rem; margin-bottom: 0.85rem; }
+    .phase-card ul { list-style: none; }
+    .phase-card ul li {
+      font-size: 0.84rem;
+      color: var(--gray-700);
+      padding: 0.3rem 0;
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+    }
+    .phase-card ul li::before { content: '→'; color: var(--green-500); font-weight: 700; flex-shrink: 0; }
+
+    /* ─── Risk cards ─── */
+    .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .risk-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--amber-500);
+    }
+    .risk-card h4 { margin-top: 0; color: var(--gray-800); font-size: 0.88rem; }
+    .risk-card p { font-size: 0.82rem; color: var(--gray-600); margin: 0; }
+    .risk-card .mitigation {
+      margin-top: 0.6rem;
+      font-size: 0.79rem;
+      color: var(--green-700);
+      font-weight: 500;
+    }
+    .risk-card .mitigation::before { content: 'Mitigación: '; font-weight: 700; }
+
+    /* ─── Decision tree ─── */
+    .decision-tree {
+      background: var(--gray-900);
+      color: #e2e8f0;
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83rem;
+      line-height: 1.8;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    .decision-tree .yes { color: #68d391; }
+    .decision-tree .no  { color: #fc8181; }
+
+    /* ─── Webhook fields table ─── */
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--gray-100);
+      color: var(--green-700);
+      padding: 0.15em 0.45em;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    /* ─── Executive summary ─── */
+    .exec-summary {
+      background: linear-gradient(135deg, var(--green-900), var(--green-700));
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      color: var(--white);
+      margin: 3rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+    .exec-summary .verdict {
+      display: inline-block;
+      background: var(--green-400);
+      color: var(--green-900);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 99px;
+      margin-bottom: 1.25rem;
+    }
+    .exec-summary h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .exec-summary .winner-name {
+      color: var(--green-300);
+    }
+    .exec-summary p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.95rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .exec-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .exec-pillar {
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .exec-pillar .icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .exec-pillar .label { font-size: 0.72rem; color: var(--green-300); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .exec-pillar .value { font-size: 0.92rem; color: var(--white); font-weight: 500; margin-top: 0.2rem; }
+    .exec-stack {
+      background: rgba(0,0,0,0.25);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .exec-stack h4 { color: var(--green-300); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; margin-top: 0; }
+    .stack-items { display: flex; flex-direction: column; gap: 0.5rem; }
+    .stack-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .stack-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.18rem 0.6rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+    .tag-f1 { background: var(--green-600); color: var(--white); }
+    .tag-f2 { background: var(--green-400); color: var(--green-900); }
+    .tag-f3 { background: var(--gray-600); color: var(--white); }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--green-900);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+    }
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    /* ─── Print ─── */
+    @media print {
+      nav { display: none !important; }
+      .hero { padding: 2rem 1rem; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      section { padding: 2rem 0; page-break-inside: avoid; }
+      .ascii-block { font-size: 0.65rem; }
+      pre { font-size: 0.72rem; }
+      .exec-summary { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      a { color: inherit; text-decoration: none; }
+    }
+
+    /* ─── Utilities ─── */
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-8 { margin-top: 2rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .text-sm { font-size: 0.82rem; color: var(--gray-500); }
+    .text-center { text-align: center; }
+    strong { color: var(--gray-900); }
+
+    /* emoji OK / warning / cross */
+    .ok   { color: var(--green-600); }
+    .warn { color: var(--amber-500); }
+    .bad  { color: var(--red-500); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="paw">🐾</span>
+    <div>
+      <span>DuniPets</span>
+      <small>Pagos · Investigación 2026</small>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#comparativa">Comparativa</a></li>
+    <li><a href="#recomendacion">Recomendación</a></li>
+    <li><a href="#flujo">Flujo de Pagos</a></li>
+    <li><a href="#integracion">Integración Técnica</a></li>
+    <li><a href="#resumen">Resumen Ejecutivo</a></li>
+  </ul>
+  <span class="nav-badge">Junio 2026</span>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<div class="hero">
+  <div class="hero-tag">Investigación de mercado · Pasarelas de Pago</div>
+  <h1>Pasarelas de Pago para<br/>DuniPets Colombia</h1>
+  <p>Análisis completo de 9 pasarelas colombianas para el modelo marketplace de cuidado de mascotas — cobro a dueños y dispersión a cuidadores.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><strong>9 pasarelas</strong>analizadas</div>
+    <div class="hero-meta-item"><strong>2 flujos</strong>cobro + dispersión</div>
+    <div class="hero-meta-item"><strong>4 fases</strong>de evaluación</div>
+    <div class="hero-meta-item"><strong>Junio 2026</strong>datos verificados</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SECCIÓN 1: COMPARATIVA -->
+<section id="comparativa">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <h2>Comparativa de Pasarelas</h2>
+        <p>Marketplace premium en Bogotá · Sin registro legal (SAS en formación) · Tickets $13,500–$55,000 COP</p>
+      </div>
+    </div>
+
+    <h3>Tabla comparativa principal</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Pasarela</th>
+            <th>Métodos de pago</th>
+            <th>Comisión tarjeta</th>
+            <th>Comisión PSE</th>
+            <th>Persona Natural</th>
+            <th>Link sin código</th>
+            <th>Split / Dispersión</th>
+            <th>Puntuación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="winner">
+            <td>⭐ ePayco</td>
+            <td>Tarjeta, PSE, Daviplata (nativo), efectivo (Efecty, Gana, PuntoRed), PayPal</td>
+            <td>2.68% + $900 + IVA (Davivienda)<br/>2.99% + $900 + IVA (otros)</td>
+            <td>$2,000 COP plano (&lt;$60K) + IVA</td>
+            <td><span class="ok">✅</span> Sin Cámara de Comercio</td>
+            <td><span class="ok">✅</span></td>
+            <td><span class="ok">✅</span> <strong>Pagos Divididos</strong> (split automático %)</td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill high" style="width:90%"></div></div>
+                <span class="score-num score-high">9.0</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Wompi</td>
+            <td>Tarjeta, PSE, Nequi (nativo), Daviplata, efectivo (17,600 puntos), Bre-B QR, Botón Bancolombia</td>
+            <td>2.65% + $700 + IVA</td>
+            <td>~1.49% + $1,200 + IVA</td>
+            <td><span class="warn">⚠️</span> OK — pero <strong>requiere cuenta Bancolombia</strong></td>
+            <td><span class="ok">✅</span></td>
+            <td><span class="ok">✅</span> Payouts API ($1,849 + 0.4% + IVA / pago)</td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill high" style="width:89%"></div></div>
+                <span class="score-num score-high">8.9</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Bold</td>
+            <td>Tarjeta, PSE, Nequi, Daviplata (limitado), QR Bre-B</td>
+            <td>~2.80% + $500 + IVA</td>
+            <td>~1.79% + IVA</td>
+            <td><span class="ok">✅</span> Solo cédula</td>
+            <td><span class="ok">✅</span> Muy fácil</td>
+            <td><span class="bad">❌</span> No tiene dispersión a terceros</td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill mid" style="width:63%"></div></div>
+                <span class="score-num score-mid">6.3</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Mercado Pago</td>
+            <td>Tarjeta, PSE, efectivo (Efecty), billetera MP</td>
+            <td>3.29% + $800 + IVA (inmediato)<br/>2.79% + $800 + IVA (14 días)</td>
+            <td>~1.99% + $800 + IVA</td>
+            <td><span class="ok">✅</span> Solo cédula</td>
+            <td><span class="ok">✅</span></td>
+            <td><span class="warn">⚠️</span> Split disponible — <strong>cuidadores deben tener cuenta MP</strong></td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill mid" style="width:66%"></div></div>
+                <span class="score-num score-mid">6.6</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>PayU</td>
+            <td>Tarjeta, PSE, Nequi, Google Pay, efectivo (Efecty, Davivienda)</td>
+            <td>3.29% + $300 + IVA</td>
+            <td>3.29% + mín $450 + IVA</td>
+            <td><span class="ok">✅</span> Persona natural</td>
+            <td><span class="ok">✅</span></td>
+            <td><span class="warn">⚠️</span> Payouts API separado (no split nativo para servicios)</td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill mid" style="width:55%"></div></div>
+                <span class="score-num score-mid">5.5</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>PlaceToPay</td>
+            <td>Tarjeta, PSE, Nequi, Daviplata, efectivo</td>
+            <td>2.9% + $700–$750 + IVA</td>
+            <td>Negociado</td>
+            <td><span class="bad">⚠️</span> Orientado a empresas medianas</td>
+            <td><span class="ok">✅</span></td>
+            <td><span class="ok">✅</span> Distribución de fondos disponible</td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill low" style="width:30%"></div></div>
+                <span class="score-num score-low">3.0</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="eliminated">
+            <td>Kushki</td>
+            <td>Tarjeta, PSE, efectivo (Cash Out código único)</td>
+            <td>Negociado (no público)</td>
+            <td>Negociado</td>
+            <td><span class="bad">❌</span> Requiere empresa constituida + Cámara de Comercio</td>
+            <td><span class="bad">❌</span></td>
+            <td><span class="ok">✅</span> PayOuts API</td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill low" style="width:20%"></div></div>
+                <span class="score-num score-low">2.0</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="eliminated">
+            <td>Rebill</td>
+            <td>Tarjeta, PSE, Nequi, cuotas</td>
+            <td>4% + $500 + IVA</td>
+            <td>N/A</td>
+            <td><span class="ok">✅</span></td>
+            <td><span class="ok">✅</span></td>
+            <td><span class="bad">❌</span> Enfocado en suscripciones</td>
+            <td>
+              <div class="score-bar-wrap">
+                <div class="score-bar"><div class="score-bar-fill low" style="width:20%"></div></div>
+                <span class="score-num score-low">2.0</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="eliminated">
+            <td>Clip</td>
+            <td colspan="6" style="color:var(--gray-400);font-style:italic;">No opera en Colombia (solo México). Eliminado.</td>
+            <td><span class="bad">❌</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sub-tablas -->
+    <h3>1. Cobertura de métodos de pago</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pasarela</th><th>Visa / MC / Amex</th><th>PSE</th><th>Nequi</th><th>Daviplata</th><th>Efectivo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Wompi</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="ok">✅ Nativo</span></td><td><span class="ok">✅</span></td><td><span class="ok">✅ 17,600 puntos</span></td></tr>
+          <tr class="winner"><td>ePayco</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="warn">⚠️ via PSE</span></td><td><span class="ok">✅ Nativo</span></td><td><span class="ok">✅ Efecty, Gana</span></td></tr>
+          <tr><td>PayU</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="ok">✅ Efecty</span></td></tr>
+          <tr><td>Mercado Pago</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="warn">⚠️ Limitado</span></td><td><span class="warn">⚠️ Limitado</span></td><td><span class="ok">✅ Efecty</span></td></tr>
+          <tr><td>Bold</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="warn">⚠️ Limitado</span></td><td><span class="bad">❌</span></td></tr>
+          <tr><td>Kushki</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td><span class="warn">⚠️ Sin confirmar</span></td><td><span class="warn">⚠️ Sin confirmar</span></td><td><span class="ok">✅ Cash Out</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2. Comisiones efectivas — ticket de $50,000 COP</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pasarela</th><th>Comisión tarjeta (aprox.)</th><th>Comisión PSE (aprox.)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bold</td><td>~$2,166 COP</td><td>~$1,065 COP</td></tr>
+          <tr><td>Wompi</td><td>~$2,275 COP</td><td>~$2,295 COP</td></tr>
+          <tr><td>PayU</td><td>~$2,257 COP</td><td>~$2,257 COP (igual)</td></tr>
+          <tr class="winner"><td>ePayco (Davivienda)</td><td>~$2,495 COP</td><td>~$2,380 COP</td></tr>
+          <tr><td>ePayco (otros bancos)</td><td>~$2,679 COP</td><td>~$2,380 COP</td></tr>
+          <tr><td>Mercado Pago (inmediato)</td><td>~$2,758 COP</td><td>~$2,184 COP</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm">IVA del 19% se aplica sobre la comisión, no sobre el total de la transacción.</p>
+
+    <h3>3. Dispersión a cuidadores — Flujo 2</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pasarela</th><th>Disponible</th><th>Tipo</th><th>Destinos</th><th>Costo</th><th>Req. cuenta especial del sitter</th></tr>
+        </thead>
+        <tbody>
+          <tr class="winner">
+            <td>ePayco Pagos Divididos</td>
+            <td><span class="ok">✅</span></td>
+            <td>Split en la <strong>misma transacción</strong></td>
+            <td>Cuentas bancarias + Daviplata</td>
+            <td><strong>Sin costo extra</strong></td>
+            <td><span class="ok">No</span></td>
+          </tr>
+          <tr>
+            <td>Wompi Payouts</td>
+            <td><span class="ok">✅</span></td>
+            <td>Batch API / panel admin</td>
+            <td>Cualquier banco + Nequi inmediato</td>
+            <td>$1,849 + 0.4% + IVA / pago</td>
+            <td><span class="ok">No</span></td>
+          </tr>
+          <tr>
+            <td>Mercado Pago Split</td>
+            <td><span class="warn">⚠️</span></td>
+            <td>OAuth por cuidador</td>
+            <td>Billetera Mercado Pago</td>
+            <td>Sin costo extra</td>
+            <td><span class="bad">SÍ — cuenta MP obligatoria</span></td>
+          </tr>
+          <tr>
+            <td>PayU Payouts</td>
+            <td><span class="warn">⚠️</span></td>
+            <td>Proceso separado</td>
+            <td>Cuentas bancarias ACH (sin Daviplata)</td>
+            <td>No divulgado</td>
+            <td><span class="ok">No</span></td>
+          </tr>
+          <tr>
+            <td>Bold</td>
+            <td><span class="bad">❌</span></td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>4. Requisitos legales</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pasarela</th><th>Persona Natural</th><th>SAS en formación</th><th>Documentos mínimos</th><th>Settlement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bold</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td>Cédula colombiana (mayor 18)</td><td>Mismo día (segundos)</td></tr>
+          <tr><td>Wompi</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td>RUT + <strong>cuenta Bancolombia</strong> + selfie</td><td>Día siguiente hábil</td></tr>
+          <tr class="winner"><td>ePayco</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td>Cédula + RUT + comprobante domicilio</td><td>1–3 días hábiles</td></tr>
+          <tr><td>PayU</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td>Cédula + RUT + extractos 3 meses + descripción negocio</td><td>3 días hábiles</td></tr>
+          <tr><td>Mercado Pago</td><td><span class="ok">✅</span></td><td><span class="ok">✅</span></td><td>Cédula</td><td>0 días (billetera) / hasta 14 días (banco)</td></tr>
+          <tr><td>Kushki</td><td><span class="bad">❌</span></td><td><span class="bad">❌</span></td><td>NIT + CC + estados financieros</td><td>Negociado</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Matriz de puntuación ponderada</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Criterio</th><th>Peso</th><th>Wompi</th><th>ePayco</th><th>PayU</th><th>Mercado Pago</th><th>Bold</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Persona natural / SAS</td><td>25%</td><td>8</td><td><strong class="ok">9</strong></td><td>8</td><td>9</td><td><strong class="ok">9</strong></td></tr>
+          <tr><td>Link sin código</td><td>15%</td><td>8</td><td>8</td><td>7</td><td>8</td><td><strong class="ok">10</strong></td></tr>
+          <tr><td>Nequi / Daviplata</td><td>15%</td><td><strong class="ok">10</strong> (Nequi nativo)</td><td>8 (Daviplata nativo)</td><td>8</td><td>6</td><td>8</td></tr>
+          <tr><td>Dispersión sitters</td><td>30%</td><td><strong class="ok">9</strong> (Payouts API)</td><td><strong class="ok">10</strong> (Split auto)</td><td>5</td><td>6</td><td><span class="bad">1</span></td></tr>
+          <tr><td>Comisión competitiva</td><td>15%</td><td><strong class="ok">9</strong> (2.65%)</td><td>8 (2.68–2.99%)</td><td>6 (3.29%)</td><td>5 (3.29%+$800)</td><td>8 (2.80%)</td></tr>
+          <tr style="background:var(--green-50);font-weight:700;">
+            <td><strong>TOTAL</strong></td><td>100%</td>
+            <td class="score-high">8.90</td>
+            <td class="score-high">8.85</td>
+            <td class="score-mid">6.55</td>
+            <td class="score-mid">6.65</td>
+            <td class="score-mid">6.35</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>Empate técnico Wompi–ePayco (8.90 vs 8.85)</strong>
+        La diferencia decisiva: Wompi requiere cuenta Bancolombia para recibir pagos como comercio. ePayco tiene split automático sin costo adicional y acepta cualquier banco. ePayco es la recomendación principal para fundadores sin cuenta Bancolombia.
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <strong>Notas sobre confiabilidad de datos</strong>
+        Las tarifas PSE de Wompi (1.49%) y Bold (1.79%) provienen de fuentes comparativas — verificar con ejecutivo comercial. PayU está en transición a Rapyd (adquirida ~2024–2025). Los límites de persona natural en ePayco ($3M COP/txn) son ampliables bajo solicitud.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ SECCIÓN 2: RECOMENDACIÓN -->
+<section id="recomendacion">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <h2>Recomendación de Pasarelas</h2>
+        <p>Estrategia por fases para DuniPets — desde lanzamiento hasta escala</p>
+      </div>
+    </div>
+
+    <!-- Recomendación principal -->
+    <div style="background:var(--white);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-md);border-left:5px solid var(--green-500);margin-bottom:1.5rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+        <div style="background:var(--green-100);border-radius:8px;padding:0.5rem 1rem;font-size:0.72rem;font-weight:700;color:var(--green-800);text-transform:uppercase;letter-spacing:0.08em;">Recomendación Principal</div>
+        <h3 style="margin:0;font-size:1.35rem;color:var(--green-800);">ePayco — Pasarela colombiana</h3>
+      </div>
+      <p style="margin-bottom:1rem;">ePayco es la opción más completa para DuniPets en su etapa actual por una razón estructural: es la única pasarela colombiana que ofrece <strong>split payment automático dentro de la misma transacción</strong> sin requerir que los cuidadores abran cuentas en un servicio externo. Cuando un dueño paga $50,000 COP, ePayco distribuye automáticamente $40,000 al cuidador y $10,000 a DuniPets en el mismo evento de pago.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Criterio</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Persona natural sin Cámara de Comercio</td><td><span class="ok">✅ Confirmado</span></td></tr>
+            <tr><td>Link de pago sin desarrollo técnico</td><td><span class="ok">✅ Disponible</span></td></tr>
+            <tr><td>Daviplata nativo (20M+ usuarios Colombia)</td><td><span class="ok">✅ Integración nativa</span></td></tr>
+            <tr><td>Split automático para pagar cuidadores</td><td><span class="ok">✅ Sin costo adicional</span></td></tr>
+            <tr><td>Comisión competitiva</td><td><span class="ok">✅ 2.68–2.99% + $900</span></td></tr>
+            <tr><td>Documentación técnica</td><td><span class="ok">✅ docs.epayco.com</span></td></tr>
+            <tr><td>Empresa 100% colombiana</td><td><span class="ok">✅ Medellín</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warning" style="margin-top:1rem;">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <strong>Limitación principal</strong>
+          Nequi no es integración nativa directa (funciona via PSE). La tarifa fija de $900 COP es alta para tickets de $13,500 COP (~6.7%). Mitigación: establecer ticket mínimo de $25,000 COP.
+        </div>
+      </div>
+    </div>
+
+    <!-- Recomendación alternativa -->
+    <div style="background:var(--white);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-sm);border-left:5px solid var(--green-300);margin-bottom:2rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+        <div style="background:var(--green-50);border-radius:8px;padding:0.5rem 1rem;font-size:0.72rem;font-weight:700;color:var(--green-700);text-transform:uppercase;letter-spacing:0.08em;">Alternativa / Complementaria</div>
+        <h3 style="margin:0;font-size:1.2rem;color:var(--green-700);">Wompi (Bancolombia) — si los fundadores tienen cuenta Bancolombia</h3>
+      </div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
+        <li style="font-size:0.88rem;display:flex;gap:0.5rem;"><span class="ok">✅</span> Nequi nativo (Bancolombia es propietario de Nequi) — dispersión en segundos</li>
+        <li style="font-size:0.88rem;display:flex;gap:0.5rem;"><span class="ok">✅</span> Comisión PSE más baja del mercado (~1.49% + $1,200 vs $2,000 plano de ePayco)</li>
+        <li style="font-size:0.88rem;display:flex;gap:0.5rem;"><span class="ok">✅</span> Wompi Payouts: paga a cualquier banco colombiano + Nequi en un solo batch</li>
+        <li style="font-size:0.88rem;display:flex;gap:0.5rem;"><span class="ok">✅</span> Red de 17,600 corresponsales para efectivo — mayor cobertura</li>
+        <li style="font-size:0.88rem;display:flex;gap:0.5rem;"><span class="bad">❌</span> <strong>Requiere cuenta corriente o de ahorros Bancolombia para recibir desembolsos</strong></li>
+        <li style="font-size:0.88rem;display:flex;gap:0.5rem;"><span class="warn">⚠️</span> Payouts son proceso separado del cobro — planes desde $210,000 COP/mes o $1,849 + 0.4% por pago</li>
+      </ul>
+      <p style="font-size:0.85rem;color:var(--gray-600);">
+        <strong>Uso complementario:</strong> Si ePayco es la pasarela principal de cobro, Wompi Payouts puede usarse exclusivamente para dispersar a cuidadores con cuenta Nequi.
+      </p>
+    </div>
+
+    <!-- Stack por fases -->
+    <h3>Stack sugerido por fase</h3>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <h3>Fase 1 — Lanzamiento</h3>
+        <p class="phase-sub">Semanas 1–12 · Sin desarrollo · Validar demanda</p>
+        <ul>
+          <li>ePayco links de pago (desde panel)</li>
+          <li>Pagos manuales semanales a cuidadores</li>
+          <li>Google Forms para registro</li>
+          <li>WhatsApp Business para operaciones</li>
+          <li>20% comisión retenida manualmente</li>
+        </ul>
+        <div class="callout info" style="margin-top:1rem;padding:0.75rem 1rem;">
+          <span class="callout-icon">⏱️</span>
+          <div class="callout-body"><strong>Activación: 1–3 días hábiles</strong> desde registro en ePayco</div>
+        </div>
+      </div>
+      <div class="phase-card alt">
+        <h3>Fase 2 — Escala</h3>
+        <p class="phase-sub">Mes 3+ · Con desarrollo mínimo · 50+ cuidadores</p>
+        <ul>
+          <li>ePayco API + Pagos Divididos automático</li>
+          <li>Split 80% sitter / 20% DuniPets por transacción</li>
+          <li>Wompi Payouts para cuidadores con Nequi</li>
+          <li>Webhook para notificaciones automáticas</li>
+          <li>Antifraude ePayco nativo (incluido)</li>
+        </ul>
+        <div class="callout warning" style="margin-top:1rem;padding:0.75rem 1rem;">
+          <span class="callout-icon">🔁</span>
+          <div class="callout-body"><strong>Trigger:</strong> 30+ transacciones/mes o &gt;5h/semana de esfuerzo manual</div>
+        </div>
+      </div>
+      <div class="phase-card adv">
+        <h3>Fase 3 — Expansión</h3>
+        <p class="phase-sub">Año 2+ · SAS registrada · &gt;$100M COP/mes</p>
+        <ul>
+          <li>Wompi Gateway (plan negociado con Bancolombia)</li>
+          <li>Wompi Payouts Premium (volumen justifica plan mensual)</li>
+          <li>PlaceToPay / Kushki como alternativa enterprise</li>
+          <li>Cuotas sin interés para tickets premium</li>
+          <li>SLA garantizado y ejecutivo comercial dedicado</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Árbol de decisión -->
+    <h3>Árbol de decisión rápida</h3>
+    <div class="decision-tree">¿Los fundadores tienen cuenta Bancolombia?
+<span class="yes">├── SÍ → Wompi como pasarela única (cobro + dispersión en un proveedor)</span>
+<span class="no">└── NO → ePayco como pasarela principal</span>
+         <span class="no">├── Cuidadores cobran en banco o Daviplata → ePayco Pagos Divididos (Fase 2)</span>
+         <span class="no">└── Cuidadores prefieren Nequi → ePayco (cobro) + Wompi Payouts (dispersión Nequi)</span></div>
+
+    <!-- Riesgos -->
+    <h3>Riesgos y limitaciones</h3>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <h4>Riesgo 1 — Tarifa fija alta en tickets bajos</h4>
+        <p>La tarifa fija de $900 COP de ePayco representa el 6.7% de un ticket de $13,500 COP, llevando la comisión total a ~10%.</p>
+        <p class="mitigation">Establecer ticket mínimo de $25,000 COP en la plataforma.</p>
+      </div>
+      <div class="risk-card">
+        <h4>Riesgo 2 — Wompi: dependencia de Bancolombia</h4>
+        <p>Si los fundadores no tienen cuenta Bancolombia, el modelo Agregador de Wompi queda bloqueado para recibir pagos.</p>
+        <p class="mitigation">Abrir cuenta Bancolombia antes de integrar Wompi, o usar ePayco que acepta cualquier banco.</p>
+      </div>
+      <div class="risk-card">
+        <h4>Riesgo 3 — PSE de ePayco en tickets &lt;$60K COP</h4>
+        <p>$2,000 COP plano es costoso para un servicio de $20,000 COP (10% solo por PSE).</p>
+        <p class="mitigation">Incentivar pago con tarjeta o establecer cobro adicional visible para PSE.</p>
+      </div>
+      <div class="risk-card">
+        <h4>Riesgo 4 — Registro DIAN / facturación</h4>
+        <p>Al superar ciertos umbrales, ePayco puede requerir NIT activo y bloquear la cuenta.</p>
+        <p class="mitigation">Registrar la SAS antes de superar $4,800 UVT anuales (~$228M COP en 2026).</p>
+      </div>
+      <div class="risk-card">
+        <h4>Riesgo 5 — PayU / Rapyd transición</h4>
+        <p>PayU fue adquirida por Rapyd. La continuidad de contratos y soporte en Colombia no está garantizada.</p>
+        <p class="mitigation">No integrar PayU como proveedor principal en 2026.</p>
+      </div>
+      <div class="risk-card">
+        <h4>Riesgo 6 — Adopción de Nequi por cuidadores</h4>
+        <p>ePayco no tiene dispersión nativa a Nequi. Cuidadores que prefieran Nequi requieren proceso adicional.</p>
+        <p class="mitigation">Fase 1: pagar desde Nequi personal DuniPets. Fase 2: Wompi Payouts como canal Nequi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ SECCIÓN 3: FLUJO DE PAGOS -->
+<section id="flujo">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <h2>Flujo de Pagos DuniPets</h2>
+        <p>Diseño financiero completo — cliente paga, DuniPets retiene, cuidador recibe</p>
+      </div>
+    </div>
+
+    <h3>Flujo completo — Fase 2 (ePayco Pagos Divididos)</h3>
+    <div class="ascii-block">┌─────────────────────────────────────────────────────────────────────────────┐
+│                         FLUJO DE PAGO DUNIPETS                              │
+│                    (ePayco Pagos Divididos — Fase 2)                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  DUEÑO DE MASCOTA                 DUNIPETS                    CUIDADOR (SITTER)
+  (Cliente)                        (Marketplace)               (Proveedor)
+       │                               │                              │
+       │  1. Reserva servicio          │                              │
+       │──────────────────────────────►│                              │
+       │                               │                              │
+       │  2. Recibe link de pago       │                              │
+       │◄──────────────────────────────│                              │
+       │   ($50,000 COP por ejemplo)   │                              │
+       │                               │                              │
+       │  3. Paga con tarjeta/         │                              │
+       │     PSE/Daviplata             │                              │
+       │──────────────────────────────►│                              │
+       │                         [ePayco procesa]                     │
+       │                               │                              │
+       │  4. Confirmación de pago      │                              │
+       │◄──────────────────────────────│                              │
+       │                               │                              │
+       │                         [ePayco deduce comisión propia]      │
+       │                         ~$2,495 COP (2.68% + $900 + IVA)    │
+       │                               │                              │
+       │                         Neto disponible: ~$47,505           │
+       │                               │                              │
+       │                         [ePayco Pagos Divididos]             │
+       │                         Split automático por porcentaje       │
+       │                               │                              │
+       │                         ┌─────┴─────┐                       │
+       │                         │           │                        │
+       │                    20% DuniPets  80% Sitter                  │
+       │                    $9,501 COP    $38,004 COP──────────────► │
+       │                         │                              Cuenta banco /
+       │                         │                              Daviplata del cuidador
+       │                    Cuenta DuniPets                           │
+       │                    (ePayco panel)                            │
+       │                         │                                    │
+       │                    [1–3 días hábiles]                   [1–3 días hábiles]
+       │                    DuniPets retira                      Sitter recibe
+       │                    a su banco                           en su cuenta</div>
+
+    <h3>Flujo Fase 1 — Operación manual (sin código)</h3>
+    <div class="ascii-block">┌─────────────────────────────────────────────────────────────────────────────┐
+│                    FLUJO FASE 1 — OPERACIÓN MANUAL                          │
+│                    (ePayco links de pago — sin desarrollo)                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  DUEÑO DE MASCOTA            DUNIPETS (operador)           CUIDADOR (SITTER)
+       │                           │                              │
+       │  1. Contacta por          │                              │
+       │     WhatsApp/Instagram    │                              │
+       │──────────────────────────►│                              │
+       │                           │  2. Coordina con cuidador    │
+       │                           │─────────────────────────────►│
+       │                           │                              │
+       │                           │  3. Genera link de pago      │
+       │                           │     ePayco ($50,000 COP)     │
+       │                           │                              │
+       │  4. Recibe link WhatsApp  │                              │
+       │◄──────────────────────────│                              │
+       │                           │                              │
+       │  5. Paga con tarjeta/PSE/ │                              │
+       │     Daviplata             │                              │
+       │──────────────────────────►│                              │
+       │                           │                              │
+       │  6. ePayco notifica pago  │                              │
+       │     confirmado (webhook)  │                              │
+       │                           │                              │
+       │  7. Confirmación al       │                              │
+       │     cliente               │                              │
+       │◄──────────────────────────│                              │
+       │                           │                              │
+       │                      [1–3 días]                          │
+       │                      ePayco acredita                     │
+       │                      en cuenta DuniPets                  │
+       │                           │                              │
+       │                      [Pago manual semanal]               │
+       │                      DuniPets transfiere 80%────────────►│
+       │                      ($40,000 COP) por Nequi             │
+       │                      o transferencia bancaria            │
+       │                           │                              │
+       │                      DuniPets retiene 20%                │
+       │                      ($10,000 COP) como comisión         │</div>
+
+    <h3>Timing de flujos de dinero</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Evento</th><th>Día / Hora</th><th>Quién recibe</th></tr></thead>
+        <tbody>
+          <tr><td>Cliente paga en ePayco</td><td>Lunes 10:00 a.m.</td><td>ePayco recibe</td></tr>
+          <tr><td>Confirmación a DuniPets (webhook)</td><td>Lunes 10:01 a.m.</td><td>DuniPets notificado</td></tr>
+          <tr><td>Dinero disponible en panel ePayco</td><td>Martes–Miércoles (1–3 días hábiles)</td><td>DuniPets</td></tr>
+          <tr><td>DuniPets retira a su banco</td><td>Miércoles (costo: $6,500 + IVA)</td><td>DuniPets en banco</td></tr>
+          <tr><td>Cuidador recibe (Fase 1 manual)</td><td>Viernes (pago semanal)</td><td>Sitter</td></tr>
+          <tr class="winner"><td>Cuidador recibe (Fase 2 split auto)</td><td>Martes–Miércoles (mismo ciclo)</td><td>Sitter directo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Modelo de comisiones — ejemplos por ticket</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Precio del servicio</th><th>Comisión ePayco (aprox.)</th><th>Neto para split</th><th>DuniPets 20%</th><th>Cuidador 80%</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>$13,500 COP</td><td>~$2,271</td><td>~$11,229</td><td>$2,246</td><td>$8,983</td></tr>
+          <tr><td>$25,000 COP</td><td>~$1,771</td><td>~$23,229</td><td>$4,646</td><td>$18,583</td></tr>
+          <tr><td>$35,000 COP</td><td>~$2,053</td><td>~$32,947</td><td>$6,589</td><td>$26,358</td></tr>
+          <tr class="winner"><td>$50,000 COP</td><td>~$2,495</td><td>~$47,505</td><td>$9,501</td><td>$38,004</td></tr>
+          <tr><td>$80,000 COP</td><td>~$3,215</td><td>~$76,785</td><td>$15,357</td><td>$61,428</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Análisis de sostenibilidad financiera</h3>
+    <div class="ascii-block" style="color:#7dcba0;">Con 100 transacciones/mes de ticket promedio $35,000 COP:
+
+  Volumen bruto mensual:        $3,500,000 COP
+  Comisión ePayco (~6.2%):     -$205,300 COP
+  Comisión DuniPets (20%):      $658,940 COP  ← ingreso DuniPets
+  Pago a cuidadores (80%):     $2,635,760 COP
+
+  Costo retiros ePayco (2/mes × $6,500):  -$13,000 COP
+  Ingreso neto DuniPets/mes:              ~$645,940 COP
+
+Con 500 transacciones/mes de ticket promedio $45,000 COP:
+
+  Volumen bruto mensual:       $22,500,000 COP
+  Comisión ePayco (~5.8%):    -$1,305,000 COP
+  Comisión DuniPets (20%):     $4,239,000 COP  ← ingreso DuniPets
+  Pago a cuidadores (80%):    $16,956,000 COP
+
+  Costo retiros ePayco (4/mes × $6,500):  -$26,000 COP
+  Ingreso neto DuniPets/mes:              ~$4,213,000 COP</div>
+
+    <h3>Estructura de cuentas recomendada</h3>
+    <div class="ascii-block">┌──────────────────────────────────────────────────────────┐
+│                   CUENTAS DUNIPETS                        │
+│                                                           │
+│  1. Panel ePayco (virtual)                                │
+│     → Donde ingresan todos los cobros                     │
+│     → Fuente de la dispersión automática (Fase 2)         │
+│                                                           │
+│  2. Cuenta bancaria operacional DuniPets                  │
+│     → Cualquier banco colombiano                          │
+│     → Destino de retiros desde ePayco                     │
+│     → Desde aquí se pagan gastos operativos               │
+│                                                           │
+│  3. Cuenta Nequi / billetera (Fase 1 pagos manuales)      │
+│     → Para transferir a cuidadores que prefieren Nequi    │
+│     → Temporal — en Fase 2 usar Wompi Payouts             │
+│                                                           │
+│  OPCIONAL (Fase 2+):                                      │
+│  4. Cuenta Bancolombia                                    │
+│     → Para activar Wompi Payouts                          │
+│     → Dispersión a Nequi de cuidadores en tiempo real     │
+└──────────────────────────────────────────────────────────┘</div>
+
+    <h3>Consideraciones regulatorias</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tema</th><th>Situación</th><th>Acción</th></tr></thead>
+        <tbody>
+          <tr><td>SAGRILAFT (antilavado)</td><td>ePayco tiene controles automáticos</td><td>Implementar T&amp;C con política antilavado</td></tr>
+          <tr><td>IVA sobre comisión de plataforma</td><td>Comisión del 20% puede ser sujeta a IVA al registrar SAS</td><td>Consultar contador antes de constituir</td></tr>
+          <tr><td>Retención en la fuente</td><td>Al superar umbrales, aplica retención</td><td>Revisar con contador</td></tr>
+          <tr><td>Límite persona natural</td><td>ePayco: $3M COP/txn (ampliable)</td><td>Suficiente para pet sitting en Bogotá</td></tr>
+          <tr><td>4×1000 GMF</td><td>Cada retiro a cuenta bancaria causa 4×1000</td><td>Incluir en modelo de costos (mínimo impacto)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ SECCIÓN 4: INTEGRACIÓN TÉCNICA -->
+<section id="integracion">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <h2>Integración Técnica — ePayco Pagos Divididos</h2>
+        <p>Guía completa de implementación para el equipo de desarrollo de DuniPets</p>
+      </div>
+    </div>
+
+    <h3>Arquitectura de integración</h3>
+    <div class="ascii-block">┌─────────────────────────────────────────────────────────────────────┐
+│                    ARQUITECTURA DE INTEGRACIÓN                       │
+│                                                                      │
+│   Frontend DuniPets          Backend DuniPets         ePayco API    │
+│   (Web / App)                (Node / Python / PHP)                  │
+│                                                                      │
+│   Usuario hace checkout  →   Crear token de pago  →   POST /token   │
+│                              con parámetros split                    │
+│                                                                      │
+│   Checkout embebido      ←   Retornar tokenId     ←   tokenId       │
+│   ePayco (JS plugin)                                                 │
+│                                                                      │
+│   Usuario completa pago  →   ePayco procesa       →   Split:        │
+│                              tarjeta/PSE/Daviplata     - 80% sitter  │
+│                                                        - 20% DuniPets│
+│                                                                      │
+│   Confirmación           ←   Webhook notifica     ←   POST webhook  │
+│   al usuario                 estado del pago                        │
+└─────────────────────────────────────────────────────────────────────┘</div>
+
+    <h3>Paso 0 — Prerrequisitos de configuración</h3>
+    <div class="callout dark">
+      <span class="callout-icon">⚙️</span>
+      <div class="callout-body">
+        <strong>En el panel de ePayco (admin.epayco.co)</strong>
+        <ol style="margin-top:0.5rem;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.4rem;font-size:0.86rem;">
+          <li>Crear cuenta principal (DuniPets): cédula + RUT + comprobante domicilio</li>
+          <li>Activar Pagos Divididos: ticket de soporte con descripción del modelo marketplace</li>
+          <li>Registrar Receptores (cada cuidador): nombre, cuenta bancaria o Daviplata, banco</li>
+          <li>Obtener credenciales: <code style="background:rgba(255,255,255,0.1);color:#7dcba0;">P_CUST_ID_CLIENTE</code>, <code style="background:rgba(255,255,255,0.1);color:#7dcba0;">P_KEY</code>, <code style="background:rgba(255,255,255,0.1);color:#7dcba0;">PUBLIC_KEY</code></li>
+          <li>Activar URL de webhook en el panel admin</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3>Paso 1 — Frontend: cargar el SDK</h3>
+    <div class="code-label"><span class="dot dot-html"></span> HTML</div>
+    <pre><code class="language-html">&lt;!-- En el &lt;head&gt; de la página de checkout --&gt;
+&lt;script src="https://checkout.epayco.co/checkout.js"&gt;&lt;/script&gt;</code></pre>
+
+    <div class="code-label"><span class="dot dot-js"></span> JavaScript</div>
+    <pre><code class="language-javascript">// Configuración del handler de pago
+const handler = ePayco.checkout.configure({
+  key: 'TU_PUBLIC_KEY',   // Pública — seguro poner en frontend
+  test: false              // true en sandbox, false en producción
+});</code></pre>
+
+    <h3>Paso 2 — Backend: crear token de pago con split</h3>
+    <p style="font-size:0.88rem;color:var(--gray-600);margin-bottom:0.5rem;">El split se define en el <strong>backend</strong> para evitar manipulación desde el cliente. Endpoint: <code>POST https://secure.epayco.co/payment/process</code></p>
+
+    <div class="code-label"><span class="dot dot-py"></span> Python</div>
+    <pre><code class="language-python">import requests
+import hashlib
+
+def crear_pago_con_split(reserva_id, monto_total_cop, sitter_id):
+    """
+    monto_total_cop: int, ej. 50000
+    sitter_id: str, ID del receptor registrado en ePayco
+    """
+    # Firma de seguridad (SHA256)
+    firma = hashlib.sha256(
+        f"{P_CUST_ID}^{P_KEY}^{reserva_id}^{monto_total_cop}^COP".encode()
+    ).hexdigest()
+
+    payload = {
+        "P_CUST_ID_CLIENTE": P_CUST_ID,
+        "P_KEY": P_KEY,
+        "x_ref_payco": reserva_id,          # ID único de la reserva
+        "x_amount": monto_total_cop,
+        "x_currency_code": "COP",
+        "x_description": f"Reserva DuniPets #{reserva_id}",
+        "x_signature": firma,
+        "x_redirect_url": "https://dunipets.co/reserva/confirmacion",
+        "x_response_url": "https://dunipets.co/reserva/respuesta",
+
+        # Pagos Divididos — Tipo 02 = porcentaje
+        "split": [
+            {
+                "id_receiver": sitter_id,    # ID del cuidador en ePayco
+                "type": "02",                # Tipo 02: porcentaje
+                "value": "80"               # 80% va al cuidador
+            }
+            # El 20% restante queda en la cuenta principal DuniPets
+        ]
+    }
+
+    response = requests.post(
+        "https://secure.epayco.co/payment/process",
+        json=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    return response.json()</code></pre>
+
+    <div class="code-label"><span class="dot dot-js"></span> Node.js</div>
+    <pre><code class="language-javascript">const epayco = require('epayco-sdk-node')({
+  apiKey: process.env.EPAYCO_PUBLIC_KEY,
+  privateKey: process.env.EPAYCO_PRIVATE_KEY,
+  lang: 'ES',
+  test: false
+});
+
+async function crearPagoConSplit(reservaId, monto, sitterId) {
+  const pago = await epayco.charge.create({
+    token_card: tokenDeTarjeta,
+    name: "DuniPets - Servicio de cuidado",
+    description: `Reserva #${reservaId}`,
+    invoice: reservaId,
+    currency: "cop",
+    amount: monto,
+    tax_base: "0",
+    tax: "0",
+    split: [
+      {
+        id_receiver: sitterId,
+        type: "02",    // porcentaje
+        value: "80"
+      }
+    ]
+  });
+  return pago;
+}</code></pre>
+
+    <h3>Paso 3 — Frontend: abrir el checkout</h3>
+    <div class="code-label"><span class="dot dot-js"></span> JavaScript</div>
+    <pre><code class="language-javascript">async function iniciarPago(reservaId, monto) {
+  // Crear token en backend propio de DuniPets
+  const res = await fetch('/api/crear-pago', {
+    method: 'POST',
+    body: JSON.stringify({ reserva_id: reservaId, monto })
+  });
+  const { tokenId } = await res.json();
+
+  // Abrir checkout ePayco embebido
+  handler.open({
+    name: "DuniPets",
+    description: `Reserva #${reservaId}`,
+    invoice: reservaId,
+    currency: "COP",
+    amount: monto,
+    tax_base: "0",
+    tax: "0",
+    country: "CO",
+    lang: "es",
+    external: "false",
+    confirmation: "https://dunipets.co/api/webhook/epayco",
+    response: "https://dunipets.co/reserva/respuesta",
+    methodsDisable: ["SP", "CASH"]  // Opcional: deshabilitar efectivo
+  });
+}</code></pre>
+
+    <h3>Paso 4 — Backend: recibir webhook de confirmación</h3>
+    <div class="code-label"><span class="dot dot-py"></span> Python (FastAPI)</div>
+    <pre><code class="language-python">from fastapi import FastAPI, Request
+import hashlib
+
+app = FastAPI()
+
+@app.post("/api/webhook/epayco")
+async def webhook_epayco(request: Request):
+    data = await request.json()
+
+    # 1. Validar firma — NUNCA omitir esta validación
+    firma_esperada = hashlib.sha256(
+        f"{P_CUST_ID}^{P_KEY}^{data['x_ref_payco']}^{data['x_amount']}^{data['x_currency_code']}^{data['x_transaction_state']}".encode()
+    ).hexdigest()
+
+    if firma_esperada != data.get('x_signature'):
+        return {"error": "Firma inválida"}, 400
+
+    estado = data['x_transaction_state']
+    reserva_id = data['x_ref_payco']
+
+    if estado == "Aceptada":
+        await actualizar_reserva(reserva_id, estado="pagada")
+        await notificar_cuidador(reserva_id)
+        await notificar_cliente(reserva_id)
+
+    elif estado == "Rechazada":
+        await actualizar_reserva(reserva_id, estado="fallida")
+        await notificar_cliente_pago_fallido(reserva_id)
+
+    elif estado == "Pendiente":
+        # PSE o efectivo — esperar confirmación final
+        await actualizar_reserva(reserva_id, estado="pendiente")
+
+    return {"status": "ok"}</code></pre>
+
+    <h4>Campos clave del webhook</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Campo</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td><code>x_ref_payco</code></td><td>Referencia de la transacción (= invoice enviado)</td></tr>
+          <tr><td><code>x_transaction_state</code></td><td><code>Aceptada</code>, <code>Rechazada</code>, <code>Pendiente</code>, <code>Fallida</code></td></tr>
+          <tr><td><code>x_amount</code></td><td>Monto total pagado</td></tr>
+          <tr><td><code>x_amount_ok</code></td><td>Monto aprobado efectivamente</td></tr>
+          <tr><td><code>x_bank_name</code></td><td>Banco / método de pago usado</td></tr>
+          <tr><td><code>x_signature</code></td><td>Firma SHA256 para validar autenticidad</td></tr>
+          <tr><td><code>split_results</code></td><td>Array con resultados de cada receptor del split</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Paso 5 — Registrar cuidador como receptor</h3>
+    <div class="code-label"><span class="dot dot-py"></span> Python</div>
+    <pre><code class="language-python">def registrar_cuidador_epayco(nombre, banco_codigo, numero_cuenta, tipo_cuenta):
+    """
+    banco_codigo: código bancario ePayco
+    tipo_cuenta: "01" ahorros, "02" corriente
+    """
+    payload = {
+        "P_CUST_ID_CLIENTE": P_CUST_ID,
+        "P_KEY": P_KEY,
+        "name": nombre,
+        "bank": banco_codigo,
+        "account": numero_cuenta,
+        "type_account": tipo_cuenta
+    }
+    response = requests.post(
+        "https://secure.epayco.co/restpagos/receiver/create",
+        json=payload
+    )
+    return response.json()  # Retorna id_receiver para almacenar en DB
+
+# Códigos de banco más relevantes en Colombia:
+BANCOS = {
+    "Bancolombia": "1007",
+    "Banco de Bogotá": "1001",
+    "Davivienda": "1051",
+    "BBVA": "1013",
+    "Scotiabank Colpatria": "1019",
+    "Banco Popular": "1002",
+    "AV Villas": "1052"
+}</code></pre>
+
+    <h3>Consideraciones de seguridad</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Riesgo</th><th>Mitigación</th></tr></thead>
+        <tbody>
+          <tr><td>Exposición de <code>P_KEY</code></td><td>Nunca enviar al frontend. Solo en variables de entorno del servidor.</td></tr>
+          <tr><td>Manipulación del monto desde el cliente</td><td>El monto y el split se calculan y firman en el backend.</td></tr>
+          <tr><td>Webhook falso (fraude)</td><td>Siempre validar <code>x_signature</code> con SHA256 antes de procesar.</td></tr>
+          <tr><td>Double-spending</td><td>Usar <code>x_ref_payco</code> único + idempotencia en base de datos.</td></tr>
+          <tr><td>SQL injection en IDs</td><td>Usar ORM o queries parametrizadas con el <code>reserva_id</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Tarjetas de prueba (sandbox)</h3>
+    <div class="code-label"><span class="dot dot-js"></span> JavaScript</div>
+    <pre><code class="language-javascript">// Activar modo sandbox: test: true en configure()
+// URL sandbox: https://sandbox.checkout.epayco.co/checkout.js
+
+const TARJETAS_PRUEBA = {
+  aprobada: {
+    numero: "4575623182290326",
+    cvv: "123",
+    expiry: "12/26",
+    nombre: "Duni Pets Test"
+  },
+  rechazada: {
+    numero: "4111111111111111",
+    cvv: "123",
+    expiry: "12/26"
+  }
+};</code></pre>
+
+    <h3>Flujo técnico — secuencia de llamadas</h3>
+    <div class="ascii-block">1. POST /api/reservas (DuniPets backend)
+   └── Crea reserva con estado "pendiente_pago"
+   └── Retorna reserva_id + monto al frontend
+
+2. GET /api/pagos/token?reserva={id} (DuniPets backend)
+   └── Calcula split (20% DuniPets, 80% sitter)
+   └── Obtiene id_receiver del sitter desde DB
+   └── Firma la transacción con P_KEY
+   └── Retorna datos de configuración al frontend
+
+3. Frontend abre ePayco checkout con datos firmados
+
+4. Usuario completa pago en checkout ePayco
+
+5. ePayco → POST /api/webhook/epayco (DuniPets backend)
+   └── Valida firma SHA256
+   └── Actualiza reserva en DB
+   └── Dispara notificaciones (cliente + cuidador)
+
+6. ePayco ejecuta split automáticamente
+   └── 80% → cuenta bancaria / Daviplata del cuidador (1–3 días hábiles)
+   └── 20% → cuenta principal DuniPets (1–3 días hábiles)</div>
+
+    <h3>Stack técnico mínimo para Fase 2</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Componente</th><th>Tecnología sugerida</th><th>Alternativa</th></tr></thead>
+        <tbody>
+          <tr><td>Backend</td><td>Node.js (Express) + SDK ePayco</td><td>Python FastAPI / PHP Laravel</td></tr>
+          <tr><td>Base de datos</td><td>PostgreSQL</td><td>MySQL / Supabase</td></tr>
+          <tr><td>Webhook</td><td>Endpoint HTTPS propio con SSL</td><td>Ngrok en desarrollo</td></tr>
+          <tr><td>Variables de entorno</td><td><code>.env</code> con dotenv</td><td>AWS Secrets Manager / Vault</td></tr>
+          <tr><td>Notificaciones</td><td>SendGrid (email) + WhatsApp Business API</td><td>Twilio SMS</td></tr>
+          <tr><td>Frontend checkout</td><td>ePayco JS plugin embebido</td><td>Redirect a ePayco Webcheckout</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Recursos técnicos</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Recurso</th><th>URL</th></tr></thead>
+        <tbody>
+          <tr><td>Documentación Split Payments</td><td><a href="https://docs.epayco.com/docs/split-descripcion">docs.epayco.com/docs/split-descripcion</a></td></tr>
+          <tr><td>SDK Node.js</td><td><a href="https://github.com/epayco/epayco-node">github.com/epayco/epayco-node</a></td></tr>
+          <tr><td>SDK Python</td><td><a href="https://github.com/epayco/epayco-python">github.com/epayco/epayco-python</a></td></tr>
+          <tr><td>SDK PHP</td><td><a href="https://github.com/epayco/epayco-php">github.com/epayco/epayco-php</a></td></tr>
+          <tr><td>Panel Admin</td><td><a href="https://admin.epayco.co">admin.epayco.co</a></td></tr>
+          <tr><td>Sandbox</td><td><a href="https://sandbox.checkout.epayco.co">sandbox.checkout.epayco.co</a></td></tr>
+          <tr><td>Soporte técnico</td><td>soporte@epayco.co</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ RESUMEN EJECUTIVO -->
+<section id="resumen" style="background:var(--gray-100);">
+  <div class="container">
+    <div class="exec-summary">
+      <div class="verdict">Veredicto Final · Junio 2026</div>
+      <h2>La pasarela ganadora para DuniPets es <span class="winner-name">ePayco</span></h2>
+      <p>
+        ePayco es la única pasarela colombiana que combina: aceptación de persona natural sin empresa constituida, link de pago sin desarrollo técnico para arrancar en días, y split automático por porcentaje dentro de la misma transacción para pagar a los cuidadores. No requiere que los cuidadores abran cuentas en servicios externos. Para el perfil de Nequi, complementar con Wompi Payouts en Fase 2.
+      </p>
+
+      <div class="exec-pillars">
+        <div class="exec-pillar">
+          <div class="icon">🚀</div>
+          <div class="label">Activación</div>
+          <div class="value">1–3 días hábiles</div>
+        </div>
+        <div class="exec-pillar">
+          <div class="icon">💳</div>
+          <div class="label">Comisión tarjeta</div>
+          <div class="value">2.68% + $900 + IVA</div>
+        </div>
+        <div class="exec-pillar">
+          <div class="icon">🔀</div>
+          <div class="label">Split automático</div>
+          <div class="value">Sin costo extra</div>
+        </div>
+        <div class="exec-pillar">
+          <div class="icon">📋</div>
+          <div class="label">Req. legal</div>
+          <div class="value">Solo cédula + RUT</div>
+        </div>
+        <div class="exec-pillar">
+          <div class="icon">🏦</div>
+          <div class="label">Settlement</div>
+          <div class="value">1–3 días hábiles</div>
+        </div>
+      </div>
+
+      <div class="exec-stack">
+        <h4>Stack recomendado por fase</h4>
+        <div class="stack-items">
+          <div class="stack-item">
+            <span class="stack-tag tag-f1">Fase 1</span>
+            <span>ePayco links de pago (panel admin) + pagos manuales semanales a cuidadores — cero código, activo en días</span>
+          </div>
+          <div class="stack-item">
+            <span class="stack-tag tag-f2">Fase 2</span>
+            <span>ePayco API + Pagos Divididos (split automático 80/20) + Wompi Payouts para cuidadores con Nequi</span>
+          </div>
+          <div class="stack-item">
+            <span class="stack-tag tag-f3">Fase 3</span>
+            <span>Wompi Gateway (plan negociado con Bancolombia) o PlaceToPay enterprise — cuando SAS esté constituida y volumen &gt;$100M COP/mes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:1rem 0 2rem;">
+      <p class="text-sm">Investigación realizada con fuentes oficiales de cada pasarela y fuentes comparativas actualizadas a junio 2026.<br/>Verificar tarifas con ejecutivos comerciales antes de integrar. Los datos pueden cambiar sin previo aviso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <strong>DuniPets</strong> — Marketplace de cuidado de mascotas · Bogotá, Colombia<br/>
+  Investigación de pasarelas de pago · Junio 2026 · Documento interno confidencial
+</footer>
+
+<script>
+  // Syntax highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre code').forEach(block => {
+      hljs.highlightElement(block);
+    });
+  });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.style.background = '');
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.style.background = 'rgba(255,255,255,0.15)';
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

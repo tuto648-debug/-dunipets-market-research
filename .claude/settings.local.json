@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:tierradeperros.com)",
+      "WebFetch(domain:www.doggarden.com.co)",
+      "WebFetch(domain:waggy.co)",
+      "PowerShell(pip *)",
+      "WebFetch(domain:colombia.payu.com)",
+      "WebFetch(domain:ayuda.bold.co)",
+      "WebFetch(domain:www.kushkipagos.com)",
+      "WebFetch(domain:corporate.payu.com)",
+      "WebFetch(domain:www.mercadopago.com.co)",
+      "WebFetch(domain:wompi.com)",
+      "WebFetch(domain:www.rebill.com)",
+      "WebFetch(domain:epayco.com)",
+      "WebFetch(domain:soporte.wompi.co)",
+      "WebFetch(domain:bytechhub.com)",
+      "WebFetch(domain:docs.wompi.co)",
+      "WebFetch(domain:developers.payulatam.com)",
+      "WebFetch(domain:epayco-evafcwgqbke4d5gv.eastus2-01.azurewebsites.net)",
+      "WebFetch(domain:andres-dev.com)",
+      "WebFetch(domain:bold.co)",
+      "WebFetch(domain:soporte.kushkipagos.com)",
+      "Bash(git add *)",
+      "Bash(git fetch *)",
+      "Bash(gh repo *)",
+      "PowerShell(gh repo *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
