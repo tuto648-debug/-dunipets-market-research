@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Únete como Sitter Fundador — DuniPets Bogotá</title>
+  <meta name="description" content="Regístrate como Sitter Fundador en DuniPets, el marketplace premium de cuidado de mascotas en Bogotá. Solo 10 cupos disponibles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-50:  #f0fdf4;
+      --green-100: #dcfce7;
+      --green-200: #bbf7d0;
+      --green-400: #4ade80;
+      --green-500: #22c55e;
+      --green-600: #16a34a;
+      --green-700: #15803d;
+      --green-800: #166534;
+      --green-900: #14532d;
+
+      --teal-400: #2dd4bf;
+      --teal-500: #14b8a6;
+      --teal-600: #0d9488;
+
+      --gray-50:  #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+
+      --white: #ffffff;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+      --shadow:    0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.07);
+      --shadow-md: 0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.08);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+      --shadow-xl: 0 25px 50px -12px rgba(0,0,0,.18);
+      --radius-sm: 8px;
+      --radius:    12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --transition: all .2s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ===== HERO HEADER ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--green-700) 0%, var(--green-600) 40%, var(--teal-600) 100%);
+      padding: 3rem 1.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(255,255,255,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 60px;
+      background: var(--gray-50);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.25);
+      color: var(--white);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge span { font-size: 1rem; }
+
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -.02em;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green-200);
+    }
+
+    .hero p {
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,.85);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      padding: .5rem 1.2rem;
+      color: var(--white);
+      font-size: .88rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* ===== BENEFITS STRIP ===== */
+    .benefits-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-100);
+      padding: 1.5rem;
+    }
+
+    .benefits-strip-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--green-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-text strong {
+      display: block;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .benefit-text span {
+      font-size: .76rem;
+      color: var(--gray-500);
+    }
+
+    /* ===== MAIN LAYOUT ===== */
+    .main-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* ===== FORM CARD ===== */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.75rem 2rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-500), var(--teal-500));
+      color: var(--white);
+      font-size: .85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(34,197,94,.3);
+    }
+
+    .section-title-block h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-800);
+      letter-spacing: -.01em;
+    }
+
+    .section-title-block p {
+      font-size: .8rem;
+      color: var(--gray-400);
+      margin-top: .1rem;
+    }
+
+    /* ===== FORM SECTION DIVIDER ===== */
+    .form-section {
+      padding: 0 2rem 1.75rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .form-section:last-of-type { border-bottom: none; }
+
+    /* ===== FIELDS ===== */
+    .field-group {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 540px) {
+      .field-row { grid-template-columns: 1fr; }
+      .section-header { padding: 1.5rem 1.25rem 0; }
+      .form-section { padding: 0 1.25rem 1.5rem; }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+
+    .field label {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+
+    .field label .required {
+      color: var(--green-500);
+      font-size: .75rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: .7rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      color: var(--gray-800);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--green-500);
+      box-shadow: 0 0 0 3px rgba(34,197,94,.12);
+    }
+
+    .field input.error,
+    .field select.error,
+    .field textarea.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,.1);
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .75rem center;
+      padding-right: 2.5rem;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .field-hint {
+      font-size: .75rem;
+      color: var(--gray-400);
+      margin-top: .1rem;
+    }
+
+    .field-error {
+      font-size: .75rem;
+      color: #ef4444;
+      display: none;
+    }
+
+    .field.has-error .field-error { display: block; }
+
+    /* ===== CHECKBOX GROUP ===== */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: .6rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      padding: .65rem .9rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .checkbox-item:hover {
+      border-color: var(--green-400);
+      background: var(--green-50);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--gray-300);
+      border-radius: 4px;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: var(--transition);
+      background: var(--white);
+      position: relative;
+    }
+
+    .checkbox-item input[type="checkbox"]:checked {
+      background: var(--green-500);
+      border-color: var(--green-500);
+    }
+
+    .checkbox-item input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 5px; height: 9px;
+      border: 2px solid var(--white);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .checkbox-item.checked {
+      border-color: var(--green-500);
+      background: var(--green-50);
+    }
+
+    .checkbox-item .item-emoji { font-size: 1rem; }
+
+    .checkbox-item .item-label {
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    /* ===== RADIO GROUP ===== */
+    .radio-group {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .6rem 1.1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .radio-item:hover {
+      border-color: var(--green-400);
+      background: var(--green-50);
+    }
+
+    .radio-item input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 2px solid var(--gray-300);
+      border-radius: 50%;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: var(--transition);
+      position: relative;
+      background: var(--white);
+    }
+
+    .radio-item input[type="radio"]:checked {
+      border-color: var(--green-500);
+      border-width: 5px;
+      background: var(--green-500);
+      box-shadow: inset 0 0 0 3px var(--white);
+    }
+
+    .radio-item.selected {
+      border-color: var(--green-500);
+      background: var(--green-50);
+    }
+
+    .radio-item .item-label {
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    /* ===== FILE UPLOAD ===== */
+    .upload-area {
+      border: 2px dashed var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .upload-area:hover,
+    .upload-area.drag-over {
+      border-color: var(--green-400);
+      background: var(--green-50);
+    }
+
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-icon {
+      font-size: 2.5rem;
+      margin-bottom: .75rem;
+      display: block;
+    }
+
+    .upload-text strong {
+      display: block;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: .25rem;
+    }
+
+    .upload-text span {
+      font-size: .78rem;
+      color: var(--gray-400);
+    }
+
+    .upload-preview {
+      display: none;
+      margin-top: 1rem;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 1rem;
+      background: var(--green-50);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--green-200);
+    }
+
+    .upload-preview.visible { display: flex; }
+
+    .preview-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--green-400);
+    }
+
+    .preview-name {
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--green-700);
+    }
+
+    /* ===== TERMS ===== */
+    .terms-block {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: 1rem 1.25rem;
+      background: var(--gray-50);
+      border-radius: var(--radius);
+      border: 1.5px solid var(--gray-200);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .terms-block:hover { border-color: var(--green-400); }
+    .terms-block.accepted { border-color: var(--green-500); background: var(--green-50); }
+
+    .terms-block input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-300);
+      border-radius: 5px;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: .15rem;
+      transition: var(--transition);
+      position: relative;
+      background: var(--white);
+    }
+
+    .terms-block input[type="checkbox"]:checked {
+      background: var(--green-500);
+      border-color: var(--green-500);
+    }
+
+    .terms-block input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 6px; height: 10px;
+      border: 2px solid var(--white);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    .terms-text {
+      font-size: .84rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    .terms-text a {
+      color: var(--green-600);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-container {
+      padding: 1rem 2rem 0;
+    }
+
+    .progress-bar-track {
+      height: 4px;
+      background: var(--gray-100);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: .5rem;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green-500), var(--teal-500));
+      border-radius: 999px;
+      transition: width .4s ease;
+      width: 0%;
+    }
+
+    .progress-label {
+      font-size: .75rem;
+      color: var(--gray-400);
+      text-align: right;
+    }
+
+    /* ===== SUBMIT BUTTON ===== */
+    .submit-wrap {
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--green-600), var(--green-500));
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      box-shadow: 0 4px 20px rgba(22,163,74,.3);
+      letter-spacing: -.01em;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(135deg, var(--green-700), var(--green-600));
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(22,163,74,.4);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    .btn-submit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-submit .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: none;
+    }
+
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-text { opacity: .7; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .submit-note {
+      text-align: center;
+      font-size: .76rem;
+      color: var(--gray-400);
+      margin-top: .75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .3rem;
+    }
+
+    /* ===== SUCCESS STATE ===== */
+    .success-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .success-overlay.visible {
+      display: flex;
+      animation: fadeIn .3s ease;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .success-card {
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      padding: 3rem 2.5rem;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      animation: slideUp .35s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px) scale(.95); opacity: 0; }
+      to   { transform: translateY(0)     scale(1);   opacity: 1; }
+    }
+
+    .success-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-500), var(--teal-500));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 8px 30px rgba(34,197,94,.3);
+      animation: pulse-once 1s ease .4s;
+    }
+
+    @keyframes pulse-once {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .success-card h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: .75rem;
+      letter-spacing: -.02em;
+    }
+
+    .success-card p {
+      font-size: .95rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .success-steps {
+      text-align: left;
+      background: var(--green-50);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .success-step {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: .84rem;
+      color: var(--gray-700);
+      padding: .35rem 0;
+    }
+
+    .step-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--green-500);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .btn-close-success {
+      width: 100%;
+      padding: .85rem;
+      background: linear-gradient(135deg, var(--green-600), var(--green-500));
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(22,163,74,.3);
+    }
+
+    .btn-close-success:hover { background: linear-gradient(135deg, var(--green-700), var(--green-600)); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: .8rem;
+      color: var(--gray-400);
+    }
+
+    .footer strong { color: var(--green-600); }
+
+    /* ===== RESPONSIVE TWEAKS ===== */
+    @media (max-width: 480px) {
+      .hero { padding: 2.5rem 1rem 4rem; }
+      .hero-stats { gap: .75rem; }
+      .stat-pill { font-size: .78rem; padding: .4rem .9rem; }
+      .benefits-strip-inner { grid-template-columns: 1fr 1fr; }
+      .checkbox-grid { grid-template-columns: 1fr 1fr; }
+      .success-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-badge"><span>🌟</span> Programa Sitter Fundador</div>
+    <h1>Cuida mascotas.<br /><em>Gana plata. Sé Fundador.</em></h1>
+    <p>Únete a DuniPets, el marketplace premium de cuidado de mascotas en Bogotá. Solo 10 cupos disponibles.</p>
+    <div class="hero-stats">
+      <div class="stat-pill">🐾 10 cupos únicamente</div>
+      <div class="stat-pill">💰 Registro 100% gratis</div>
+      <div class="stat-pill">⏱️ 5 minutos para aplicar</div>
+    </div>
+  </header>
+
+  <!-- ===== BENEFITS STRIP ===== -->
+  <section class="benefits-strip">
+    <div class="benefits-strip-inner">
+      <div class="benefit-item">
+        <div class="benefit-icon">🏅</div>
+        <div class="benefit-text">
+          <strong>Badge Fundador</strong>
+          <span>Visible en tu perfil para siempre</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⭐</div>
+        <div class="benefit-text">
+          <strong>Perfil prioritario</strong>
+          <span>6 meses en top de búsquedas</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">💸</div>
+        <div class="benefit-text">
+          <strong>Comisión reducida</strong>
+          <span>Primeros 3 meses de operación</span>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🎯</div>
+        <div class="benefit-text">
+          <strong>Primeras reservas</strong>
+          <span>Te ayudamos a conseguirlas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-wrapper">
+    <div class="form-card">
+
+      <!-- Progress -->
+      <div class="progress-container">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-label" id="progressLabel">0% completado</p>
+      </div>
+
+      <form id="sitterForm" novalidate>
+
+        <!-- ===== SECCIÓN 1: DATOS PERSONALES ===== -->
+        <div class="section-header">
+          <div class="section-number">1</div>
+          <div class="section-title-block">
+            <h2>Datos personales</h2>
+            <p>Información para contactarte</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="field-group">
+            <div class="field-row">
+              <div class="field" id="field-nombre">
+                <label for="nombre">Nombre completo <span class="required">*</span></label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Valentina García" autocomplete="name" />
+                <span class="field-error">Este campo es obligatorio</span>
+              </div>
+              <div class="field" id="field-edad">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad" placeholder="Ej: 24" min="18" max="65" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field" id="field-whatsapp">
+                <label for="whatsapp">WhatsApp <span class="required">*</span></label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 3001234567" autocomplete="tel" />
+                <span class="field-hint">Número colombiano sin indicativo</span>
+                <span class="field-error">Ingresa un número válido (10 dígitos)</span>
+              </div>
+              <div class="field" id="field-email">
+                <label for="email">Correo electrónico <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" autocomplete="email" />
+                <span class="field-error">Ingresa un correo válido</span>
+              </div>
+            </div>
+
+            <div class="field" id="field-zona">
+              <label for="zona">¿En qué zona de Bogotá te ubicas? <span class="required">*</span></label>
+              <select id="zona" name="zona">
+                <option value="" disabled selected>Selecciona tu zona principal</option>
+                <option value="chapinero">Chapinero</option>
+                <option value="teusaquillo">Teusaquillo</option>
+                <option value="usaquen">Usaquén</option>
+                <option value="cedritos">Cedritos</option>
+                <option value="chico">Chicó / Rosales</option>
+                <option value="barrios_unidos">Barrios Unidos</option>
+                <option value="suba">Suba</option>
+                <option value="fontibon">Fontibón / Modelia</option>
+                <option value="otro_norte">Otro — Norte Bogotá</option>
+                <option value="otro_sur">Otro — Sur Bogotá</option>
+              </select>
+              <span class="field-error">Selecciona tu zona</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SECCIÓN 2: EXPERIENCIA CON MASCOTAS ===== -->
+        <div class="section-header">
+          <div class="section-number">2</div>
+          <div class="section-title-block">
+            <h2>Tu experiencia con mascotas</h2>
+            <p>Cuéntanos con qué animales te sientes cómodo/a</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="field-group">
+
+            <div class="field" id="field-tipos">
+              <label>¿Con qué tipo de mascotas te sientes cómodo/a? <span class="required">*</span></label>
+              <div class="checkbox-grid" id="tipos-mascota">
+                <label class="checkbox-item" id="cb-perros-pequenos">
+                  <input type="checkbox" name="tipos_mascota" value="perros_pequenos" />
+                  <span class="item-emoji">🐩</span>
+                  <span class="item-label">Perros pequeños</span>
+                </label>
+                <label class="checkbox-item" id="cb-perros-medianos">
+                  <input type="checkbox" name="tipos_mascota" value="perros_medianos" />
+                  <span class="item-emoji">🐕</span>
+                  <span class="item-label">Perros medianos</span>
+                </label>
+                <label class="checkbox-item" id="cb-perros-grandes">
+                  <input type="checkbox" name="tipos_mascota" value="perros_grandes" />
+                  <span class="item-emoji">🦮</span>
+                  <span class="item-label">Perros grandes</span>
+                </label>
+                <label class="checkbox-item" id="cb-gatos">
+                  <input type="checkbox" name="tipos_mascota" value="gatos" />
+                  <span class="item-emoji">🐱</span>
+                  <span class="item-label">Gatos</span>
+                </label>
+                <label class="checkbox-item" id="cb-otros">
+                  <input type="checkbox" name="tipos_mascota" value="otros" />
+                  <span class="item-emoji">🐇</span>
+                  <span class="item-label">Otros (conejos, etc.)</span>
+                </label>
+              </div>
+              <span class="field-error" id="error-tipos">Selecciona al menos un tipo de mascota</span>
+            </div>
+
+            <div class="field" id="field-exp-previa">
+              <label>¿Tienes experiencia previa cuidando mascotas? <span class="required">*</span></label>
+              <div class="radio-group" id="radio-exp">
+                <label class="radio-item" id="radio-exp-si">
+                  <input type="radio" name="exp_previa" value="si" />
+                  <span class="item-label">✅ Sí, tengo experiencia</span>
+                </label>
+                <label class="radio-item" id="radio-exp-no">
+                  <input type="radio" name="exp_previa" value="no" />
+                  <span class="item-label">🌱 No, pero me encanta aprender</span>
+                </label>
+              </div>
+              <span class="field-error" id="error-exp">Selecciona una opción</span>
+            </div>
+
+            <div class="field" id="field-experiencia-desc">
+              <label for="experiencia_desc">Si tienes experiencia, cuéntanos un poco 🐾</label>
+              <textarea id="experiencia_desc" name="experiencia_desc" placeholder="Ej: He cuidado perritos de mis vecinos los últimos 2 años, tengo 2 gatos propios, o estudié veterinaria..."></textarea>
+              <span class="field-hint">Opcional, pero suma puntos 😊</span>
+            </div>
+
+            <div class="field" id="field-vet">
+              <label>¿Estudias o trabajas con animales? <span class="required">*</span></label>
+              <div class="radio-group" id="radio-vet">
+                <label class="radio-item" id="radio-vet-si">
+                  <input type="radio" name="trabaja_animales" value="si" />
+                  <span class="item-label">🎓 Sí (veterinaria, zootecnia, etc.)</span>
+                </label>
+                <label class="radio-item" id="radio-vet-no">
+                  <input type="radio" name="trabaja_animales" value="no" />
+                  <span class="item-label">💙 No, soy pet lover</span>
+                </label>
+              </div>
+              <span class="field-error" id="error-vet">Selecciona una opción</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ===== SECCIÓN 3: DISPONIBILIDAD ===== -->
+        <div class="section-header">
+          <div class="section-number">3</div>
+          <div class="section-title-block">
+            <h2>Tu disponibilidad</h2>
+            <p>Tú defines cuándo y cuánto trabajas</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="field-group">
+
+            <div class="field" id="field-horas">
+              <label for="horas_semana">¿Cuántas horas a la semana tienes disponibles? <span class="required">*</span></label>
+              <select id="horas_semana" name="horas_semana">
+                <option value="" disabled selected>Selecciona un rango</option>
+                <option value="2-5">2 a 5 horas — tranquilo, a mi ritmo</option>
+                <option value="5-10">5 a 10 horas — quiero crecer</option>
+                <option value="10+">Más de 10 horas — full dedicación</option>
+              </select>
+              <span class="field-error">Selecciona tu disponibilidad</span>
+            </div>
+
+            <div class="field" id="field-servicios">
+              <label>¿Qué servicios te interesa ofrecer? <span class="required">*</span></label>
+              <div class="checkbox-grid" id="servicios-grid">
+                <label class="checkbox-item" id="cb-paseos">
+                  <input type="checkbox" name="servicios" value="paseos" />
+                  <span class="item-emoji">🚶</span>
+                  <span class="item-label">Paseos</span>
+                </label>
+                <label class="checkbox-item" id="cb-visitas">
+                  <input type="checkbox" name="servicios" value="visitas_domicilio" />
+                  <span class="item-emoji">🏠</span>
+                  <span class="item-label">Visitas a domicilio</span>
+                </label>
+                <label class="checkbox-item" id="cb-hospedaje">
+                  <input type="checkbox" name="servicios" value="hospedaje" />
+                  <span class="item-emoji">🛏️</span>
+                  <span class="item-label">Hospedaje en mi casa</span>
+                </label>
+                <label class="checkbox-item" id="cb-guarderia">
+                  <input type="checkbox" name="servicios" value="guarderia" />
+                  <span class="item-emoji">☀️</span>
+                  <span class="item-label">Guardería diurna</span>
+                </label>
+                <label class="checkbox-item" id="cb-house-sitting">
+                  <input type="checkbox" name="servicios" value="house_sitting" />
+                  <span class="item-emoji">🔑</span>
+                  <span class="item-label">House sitting</span>
+                </label>
+              </div>
+              <span class="field-error" id="error-servicios">Selecciona al menos un servicio</span>
+            </div>
+
+            <div class="field" id="field-espacio">
+              <label>¿Tienes espacio en tu casa para recibir mascotas? <span class="required">*</span></label>
+              <div class="radio-group" id="radio-espacio">
+                <label class="radio-item" id="radio-espacio-si">
+                  <input type="radio" name="espacio_casa" value="si" />
+                  <span class="item-label">🏡 Sí, tengo espacio adecuado</span>
+                </label>
+                <label class="radio-item" id="radio-espacio-no">
+                  <input type="radio" name="espacio_casa" value="no" />
+                  <span class="item-label">🚫 No por ahora</span>
+                </label>
+              </div>
+              <span class="field-error" id="error-espacio">Selecciona una opción</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ===== SECCIÓN 4: FOTO DE PERFIL ===== -->
+        <div class="section-header">
+          <div class="section-number">4</div>
+          <div class="section-title-block">
+            <h2>Tu foto de perfil</h2>
+            <p>Los dueños confían más en sitters con foto</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="field-group">
+            <div class="field">
+              <label>Foto de perfil <span class="required">*</span></label>
+              <div class="upload-area" id="uploadArea">
+                <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*" />
+                <span class="upload-icon">📸</span>
+                <div class="upload-text">
+                  <strong>Sube una foto tuya (con o sin tu mascota)</strong>
+                  <span>JPG, PNG — máximo 5 MB</span>
+                </div>
+              </div>
+              <div class="upload-preview" id="uploadPreview">
+                <img src="" alt="Preview" class="preview-img" id="previewImg" />
+                <span class="preview-name" id="previewName"></span>
+              </div>
+              <span class="field-hint">Una foto amigable aumenta 3x la probabilidad de recibir tu primera reserva</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SECCIÓN 5: CÓMO NOS ENCONTRASTE ===== -->
+        <div class="section-header">
+          <div class="section-number">5</div>
+          <div class="section-title-block">
+            <h2>Un poco más</h2>
+            <p>Opcional — nos ayuda a mejorar</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="field-group">
+            <div class="field">
+              <label for="como_llegaste">¿Cómo nos encontraste?</label>
+              <select id="como_llegaste" name="como_llegaste">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="facebook">Facebook (grupo de barrio o universidad)</option>
+                <option value="instagram">Instagram</option>
+                <option value="whatsapp">Grupo de WhatsApp</option>
+                <option value="referido">Me lo recomendó alguien</option>
+                <option value="universidad">Universidad / facultad</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="comentarios">¿Tienes alguna pregunta o comentario?</label>
+              <textarea id="comentarios" name="comentarios" placeholder="¡Escríbenos lo que quieras! Leemos todo 🐾"></textarea>
+            </div>
+
+            <!-- TERMS -->
+            <label class="terms-block" id="terms-block" for="terminos">
+              <input type="checkbox" id="terminos" name="terminos" />
+              <span class="terms-text">
+                Acepto los <a href="#" onclick="return false;">términos y condiciones</a> de DuniPets y autorizo el tratamiento de mis datos personales para el proceso de selección de Sitters Fundadores.
+              </span>
+            </label>
+            <span class="field-error" id="error-terminos" style="display:none;">Debes aceptar los términos para continuar</span>
+          </div>
+        </div>
+
+        <!-- ===== SUBMIT ===== -->
+        <div class="submit-wrap">
+          <button type="submit" class="btn-submit" id="btnSubmit">
+            <div class="spinner"></div>
+            <span class="btn-text">🐾 Quiero ser Sitter Fundador</span>
+          </button>
+          <p class="submit-note">🔒 Tus datos están seguros — registro 100% gratuito</p>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2026 <strong>DuniPets</strong> · Bogotá, Colombia · <a href="mailto:hola@dunipets.co" style="color: var(--green-600);">hola@dunipets.co</a></p>
+    <p style="margin-top:.35rem;">Cuidado premium para mascotas · Sin jaulas · Con amor 🐾</p>
+  </footer>
+
+  <!-- ===== SUCCESS MODAL ===== -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-card">
+      <div class="success-icon-wrap">🐾</div>
+      <h2>¡Bienvenido a DuniPets!</h2>
+      <p>Tu registro como Sitter Fundador fue recibido. <strong>Pronto te contactamos por WhatsApp</strong> para el siguiente paso.</p>
+      <div class="success-steps">
+        <div class="success-step"><div class="step-dot">1</div>Revisamos tu aplicación (24–48h)</div>
+        <div class="success-step"><div class="step-dot">2</div>Te escribimos por WhatsApp</div>
+        <div class="success-step"><div class="step-dot">3</div>Videollamada de onboarding (20 min)</div>
+        <div class="success-step"><div class="step-dot">4</div>¡Tu perfil queda activo en DuniPets! 🚀</div>
+      </div>
+      <button class="btn-close-success" onclick="closeSuccess()">Entendido, ¡emocionad@! 🌟</button>
+    </div>
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ---- Checkbox visual feedback ----
+    document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', function() {
+        this.closest('.checkbox-item').classList.toggle('checked', this.checked);
+        updateProgress();
+      });
+    });
+
+    // ---- Radio visual feedback ----
+    document.querySelectorAll('.radio-item input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const name = this.name;
+        document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+          r.closest('.radio-item').classList.remove('selected');
+        });
+        this.closest('.radio-item').classList.add('selected');
+        updateProgress();
+      });
+    });
+
+    // ---- Terms visual feedback ----
+    document.getElementById('terminos').addEventListener('change', function() {
+      document.getElementById('terms-block').classList.toggle('accepted', this.checked);
+      updateProgress();
+    });
+
+    // ---- File upload preview ----
+    document.getElementById('foto_perfil').addEventListener('change', function() {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        document.getElementById('previewImg').src = e.target.result;
+        document.getElementById('previewName').textContent = file.name;
+        document.getElementById('uploadPreview').classList.add('visible');
+      };
+      reader.readAsDataURL(file);
+      updateProgress();
+    });
+
+    // ---- Drag over visual ----
+    const uploadArea = document.getElementById('uploadArea');
+    uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+    uploadArea.addEventListener('drop', e => { e.preventDefault(); uploadArea.classList.remove('drag-over'); });
+
+    // ---- Progress bar ----
+    const requiredFields = ['nombre', 'whatsapp', 'email', 'zona', 'horas_semana'];
+
+    function updateProgress() {
+      let filled = 0;
+      const total = 8;
+
+      requiredFields.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.value.trim() !== '') filled++;
+      });
+
+      const tiposChecked = document.querySelectorAll('input[name="tipos_mascota"]:checked').length > 0;
+      const expChecked   = document.querySelector('input[name="exp_previa"]:checked');
+      const servChecked  = document.querySelectorAll('input[name="servicios"]:checked').length > 0;
+
+      if (tiposChecked) filled++;
+      if (expChecked)   filled++;
+      if (servChecked)  filled++;
+
+      const pct = Math.round((filled / total) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressLabel').textContent = pct + '% completado';
+    }
+
+    // Trigger on input events
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('input', updateProgress);
+      el.addEventListener('change', updateProgress);
+    });
+
+    // ---- Validation ----
+    function showError(fieldId, show) {
+      const field = document.getElementById('field-' + fieldId);
+      if (field) field.classList.toggle('has-error', show);
+    }
+
+    function showErrorById(id, show) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = show ? 'block' : 'none';
+    }
+
+    function validateForm() {
+      let valid = true;
+
+      // Nombre
+      const nombre = document.getElementById('nombre').value.trim();
+      if (!nombre) { showError('nombre', true); valid = false; }
+      else showError('nombre', false);
+
+      // WhatsApp — 10 digits
+      const wa = document.getElementById('whatsapp').value.replace(/\s/g, '');
+      const waValid = /^\d{10}$/.test(wa);
+      if (!waValid) { showError('whatsapp', true); valid = false; }
+      else showError('whatsapp', false);
+
+      // Email
+      const email = document.getElementById('email').value.trim();
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValid) { showError('email', true); valid = false; }
+      else showError('email', false);
+
+      // Zona
+      const zona = document.getElementById('zona').value;
+      if (!zona) { showError('zona', true); valid = false; }
+      else showError('zona', false);
+
+      // Tipos mascota
+      const tipos = document.querySelectorAll('input[name="tipos_mascota"]:checked').length;
+      if (tipos === 0) { showErrorById('error-tipos', true); valid = false; }
+      else showErrorById('error-tipos', false);
+
+      // Experiencia previa
+      const exp = document.querySelector('input[name="exp_previa"]:checked');
+      if (!exp) { showErrorById('error-exp', true); valid = false; }
+      else showErrorById('error-exp', false);
+
+      // Trabaja animales
+      const vet = document.querySelector('input[name="trabaja_animales"]:checked');
+      if (!vet) { showErrorById('error-vet', true); valid = false; }
+      else showErrorById('error-vet', false);
+
+      // Horas semana
+      const horas = document.getElementById('horas_semana').value;
+      if (!horas) { showError('horas', true); valid = false; }
+      else showError('horas', false);
+
+      // Servicios
+      const servicios = document.querySelectorAll('input[name="servicios"]:checked').length;
+      if (servicios === 0) { showErrorById('error-servicios', true); valid = false; }
+      else showErrorById('error-servicios', false);
+
+      // Espacio
+      const espacio = document.querySelector('input[name="espacio_casa"]:checked');
+      if (!espacio) { showErrorById('error-espacio', true); valid = false; }
+      else showErrorById('error-espacio', false);
+
+      // Foto
+      const foto = document.getElementById('foto_perfil').files[0];
+      if (!foto) { showError('foto', true); valid = false; }
+      else showError('foto', false);
+
+      // Términos
+      const terminos = document.getElementById('terminos').checked;
+      if (!terminos) { showErrorById('error-terminos', true); valid = false; }
+      else showErrorById('error-terminos', false);
+
+      return valid;
+    }
+
+    // ---- Form submit ----
+    document.getElementById('sitterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        // Scroll to first error
+        const firstError = document.querySelector('.has-error, [style*="display: block"]');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Simulate async submit
+      const btn = document.getElementById('btnSubmit');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      // Collect data for console log
+      const formData = {
+        nombre:            document.getElementById('nombre').value.trim(),
+        whatsapp:          document.getElementById('whatsapp').value.trim(),
+        email:             document.getElementById('email').value.trim(),
+        zona:              document.getElementById('zona').value,
+        tipos_mascota:     [...document.querySelectorAll('input[name="tipos_mascota"]:checked')].map(c => c.value),
+        exp_previa:        document.querySelector('input[name="exp_previa"]:checked')?.value,
+        experiencia_desc:  document.getElementById('experiencia_desc').value.trim(),
+        trabaja_animales:  document.querySelector('input[name="trabaja_animales"]:checked')?.value,
+        horas_semana:      document.getElementById('horas_semana').value,
+        servicios:         [...document.querySelectorAll('input[name="servicios"]:checked')].map(c => c.value),
+        espacio_casa:      document.querySelector('input[name="espacio_casa"]:checked')?.value,
+        foto_perfil:       document.getElementById('foto_perfil').files[0]?.name || null,
+        como_llegaste:     document.getElementById('como_llegaste').value,
+        comentarios:       document.getElementById('comentarios').value.trim(),
+        timestamp:         new Date().toISOString(),
+      };
+
+      console.log('📦 DuniPets — Nuevo Sitter Fundador registrado:', formData);
+
+      setTimeout(() => {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        document.getElementById('successOverlay').classList.add('visible');
+        document.body.style.overflow = 'hidden';
+        // Reset progress
+        document.getElementById('progressFill').style.width = '100%';
+      }, 1400);
+    });
+
+    function closeSuccess() {
+      document.getElementById('successOverlay').classList.remove('visible');
+      document.body.style.overflow = '';
+      document.getElementById('sitterForm').reset();
+      // Reset visual states
+      document.querySelectorAll('.checkbox-item').forEach(el => el.classList.remove('checked'));
+      document.querySelectorAll('.radio-item').forEach(el => el.classList.remove('selected'));
+      document.getElementById('terms-block').classList.remove('accepted');
+      document.getElementById('uploadPreview').classList.remove('visible');
+      document.getElementById('progressFill').style.width = '0%';
+      document.getElementById('progressLabel').textContent = '0% completado';
+    }
+
+    // Initial progress
+    updateProgress();
+  </script>
+</body>
+</html>
